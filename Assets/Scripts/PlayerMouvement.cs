@@ -17,6 +17,9 @@ public class PlayerMouvement : MonoBehaviour
 
     [SerializeField] PlayerStats PlayerStats;
 
+    [SerializeField] private GameObject statsMenu;
+    private bool isStatsOpen = false;
+
     void Start()
     {
         baseController = anim.runtimeAnimatorController;
@@ -66,5 +69,14 @@ public class PlayerMouvement : MonoBehaviour
 
 
 
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isStatsOpen = !isStatsOpen;
+            statsMenu.SetActive(isStatsOpen);
+        }
     }
 }
